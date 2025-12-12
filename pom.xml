@@ -13,16 +13,26 @@
 
     <name>hello</name>
 
-    <!-- 🔥 FIX: Force Maven to use Java 17 -->
+    <!-- Java 17 setup -->
     <properties>
         <maven.compiler.release>17</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
+    <!-- ✅ ADD THIS: Servlet API for HttpServlet, WebServlet, etc -->
+    <dependencies>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
     <build>
         <plugins>
 
-            <!-- Modern compiler plugin for Java 17 -->
+            <!-- Java compiler -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -32,7 +42,7 @@
                 </configuration>
             </plugin>
 
-            <!-- Modern WAR plugin (old versions conflict with JDK17) -->
+            <!-- WAR Plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
